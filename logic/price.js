@@ -1,6 +1,6 @@
 function Prices() {
 
-    function calculatedFinalPrice(basePrice, percentPassengerType, percentFlightType){
+    function calculateFinalPrice(basePrice, percentPassengerType, percentFlightType){
         let finalPrice = basePrice;
 
         finalPrice *= 1+percentPassengerType/100;
@@ -9,7 +9,7 @@ function Prices() {
         return finalPrice.toFixed(2);
     }
 
-    return {calculatedFinalPrice};
+    return {calculateFinalPrice};
 }
 
 module.exports = Prices();
