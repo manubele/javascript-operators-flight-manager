@@ -17,8 +17,17 @@ function Util() {
         }
         return totalNumberOfPassengers;
      }
+     function checkInput(input){
+        if (!input){
+           throw new Error("Incorrect values.Check all input fields to be filled in.");
+        }
+        if (isNaN(input)){
+         throw new Error("Incorrect values.Check all input fields to be numbers.");
+        }
+        
+     }
 
-     return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers};
+     return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput};
 
 }
 
