@@ -12,13 +12,13 @@ function Prices() {
     function calculateDefaultFinalPrice(basePrice, passengerType, flightType){
         let finalPrice = basePrice;
 
-        switch(passengerType.toUppercase()){
+        switch(passengerType.toUppercase){
             case 'REGULAR': finalPrice *= 0.95;
                 break;
             case 'VIP': finalPrice *= 1.05;
                 break;    
         }
-        switch(flightType.toUppercase()){
+        switch(flightType.toUppercase){
             case 'ECONOMY': finalPrice *= 0.97;
                 break;
             case 'BUSINESS': finalPrice *= 1.1;
