@@ -1,3 +1,5 @@
+"use strict"
+
 function Util() {
 
     function calculateTotalDistributedPassengers(distributedPassengers) {
@@ -24,11 +26,29 @@ function Util() {
         if (isNaN(input)){
          throw new Error("Incorrect values.Check all input fields to be numbers.");
         }
-        
+
      }
 
-     return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput};
+     function calculateTotalDistance(distancesArray) {
+      let totalDistance = 0;
+      let distance;
+      for (distance of distancesArray) {
+         if (distance < 0) {
+            continue;
+         }
+         totalDistance += distance;
+      }
+      return totalDistance;
+   }
 
+   function calculateBonusPoints(businessDistancesArray, economyDistancesArray, businessBonus, economyBonus) {
+      let totalBusinessDistance = calculateTotalDistance(businessDistancesArray);
+      let totalEconomyDistance = calculateTotalDistance(economyDistancesArray);
+      let points = (businessBonus * totalBusinessDistance)/100 + (economyBonus * totalEconomyDistance)/100;
+      return points;
+   }
+
+   return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput, 
+          calculateTotalDistance, calculateBonusPoints};
 }
-
 module.exports = Util(); 
