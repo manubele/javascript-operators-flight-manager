@@ -9,25 +9,31 @@ function Prices() {
         return finalPrice.toFixed(2);
     }
 
-    function calculateDefaultFinalPrice(basePrice, passengerType, flightType){
+    function calculateDefaultFinalPrice(basePrice, passengerType, flightType) {
         let finalPrice = basePrice;
 
-        switch(passengerType.toUppercase){
-            case 'REGULAR': finalPrice *= 0.95;
-                break;
+        switch(passengerType.toUpperCase()) {
+            case 'REGULAR': finalPrice *=  0.95;
+               break;
             case 'VIP': finalPrice *= 1.05;
-                break;    
+               break;
         }
-        switch(flightType.toUppercase){
+
+        switch(flightType.toUpperCase()) {
             case 'ECONOMY': finalPrice *= 0.97;
-                break;
+               break;
             case 'BUSINESS': finalPrice *= 1.1;
-                break;    
+               break;
         }
+
         return finalPrice.toFixed(2);
     }
 
-    return {calculateFinalPrice,calculateDefaultFinalPrice};
+    function calculateTotalFinalPrice(seats, passengerType, flightType, basePrice) {
+        return seats * calculateDefaultFinalPrice(basePrice, passengerType, flightType);
+    }
+
+    return {calculateFinalPrice, calculateDefaultFinalPrice, calculateTotalFinalPrice};
 }
 
 module.exports = Prices();
